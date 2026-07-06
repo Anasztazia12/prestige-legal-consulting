@@ -2,6 +2,7 @@ body {
 font-family: 'Poppins', sans-serif;
 background-color: #f5f7fa;
 color: #102a43;
+overflow-x: hidden;
 }
 
 .text-turquoise { color: #00b3b3; }
