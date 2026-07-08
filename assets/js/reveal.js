@@ -49,5 +49,23 @@
             toggleHeaderShadow();
             window.addEventListener('scroll', toggleHeaderShadow, { passive: true });
         }
+
+        var navToggle = document.getElementById('nav-toggle');
+        var nav = document.querySelector('header nav');
+        if (navToggle && nav) {
+            var closeNav = function () {
+                nav.classList.remove('open');
+                navToggle.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            };
+            navToggle.addEventListener('click', function () {
+                var isOpen = nav.classList.toggle('open');
+                navToggle.classList.toggle('open', isOpen);
+                navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+            nav.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', closeNav);
+            });
+        }
     });
 })();
